@@ -1,5 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
+  
+  protect_from_forgery
+  before_action :authenticate_student!
+  student_signed_in?
+  current_student
+  student_session
 
   # GET /projects or /projects.json
   def index
