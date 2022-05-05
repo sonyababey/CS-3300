@@ -5,6 +5,14 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     @project = projects(:one)
   end
 
+  before_action :authenticate_student!
+
+  student_signed_in?
+  
+  current_student
+  
+  student_session
+
   test "should get index" do
     get projects_url
     assert_response :success

@@ -6,12 +6,11 @@ end
 
 Rails.application.routes.draw do
   root "projects#index"
+  root to: 'home#index'
   resources :projects
 end
 
-root to: 'home#index'
-
-devise_for :users, path_names: {
+devise_for :student, path_names: {
       sign_in: 'login', sign_out: 'logout',
       password: 'secret', confirmation: 'verification',
       registration: 'register', edit: 'edit/profile'
