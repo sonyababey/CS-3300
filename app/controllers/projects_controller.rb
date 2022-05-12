@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  
+
   before_action :set_project, only: %i[ show edit update destroy ]
 
   # GET /projects or /projects.json
@@ -10,6 +12,7 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  before_action :authenticate_student! 
   # GET /projects/new
   def new
     @project = Project.new
