@@ -23,7 +23,6 @@ class ProjectsController < ApplicationController
   def edit
   end
 
-  before_action :authenticate_student!
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
@@ -39,7 +38,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  before_action :authenticate_student!
+  before_action :current_student
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     respond_to do |format|
