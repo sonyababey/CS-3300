@@ -14,15 +14,20 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    before_action :authenticate_student! 
+
     @project = Project.new
   end
 
   # GET /projects/1/edit
   def edit
+    before_action :authenticate_student! 
   end
 
   # POST /projects or /projects.json
   def create
+    before_action :authenticate_student! 
+
     @project = Project.new(project_params)
 
     respond_to do |format|
@@ -37,7 +42,8 @@ class ProjectsController < ApplicationController
   end
 
   # PATCH/PUT /projects/1 or /projects/1.json
-  def update
+  def update  
+    before_action :authenticate_student! 
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
@@ -51,6 +57,8 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1 or /projects/1.json
   def destroy
+    before_action :authenticate_student! 
+
     @project.destroy
 
     respond_to do |format|
