@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  
+  #initialize ⇒ MissingWarden
 
   before_action :set_project, only: %i[ show edit update destroy ]
 
@@ -73,4 +73,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:title, :description)
     end
+    
 end
