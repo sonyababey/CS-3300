@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :students
+  
   root "projects#index"
+  devise_for :students
   root "student#index"
 
   resources :projects

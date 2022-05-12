@@ -12,13 +12,11 @@ class ProjectsController < ApplicationController
   def show
   end
 
-  before_action :authenticate_student! 
   # GET /projects/new
   def new
     @project = Project.new
   end
 
-  before_action :authenticate_student!
   # GET /projects/1/edit
   def edit
   end
@@ -38,7 +36,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  before_action :current_student
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
     respond_to do |format|
@@ -52,7 +49,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  before_action :authenticate_student!
   # DELETE /projects/1 or /projects/1.json
   def destroy
     @project.destroy
